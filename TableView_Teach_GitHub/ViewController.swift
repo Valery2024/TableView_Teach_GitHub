@@ -9,7 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-       
+    let restauratnNames = ["Балкан Гриль", "Бочка",
+                            "Вкусные истории", "Дастархан",
+                            "Индокитай", "Классик", "Шок",
+                            "Bonsai","Burger Heroes", "Kitchen","Love&Life","Morris Pub","Sherlock Holmes","Speak Easy","X.O"
+     ]
        var tableView: UITableView!
         var data: [String] = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
 
@@ -38,7 +42,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        data.count
+        return restauratnNames.count
 
     }
     
@@ -46,8 +50,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
                 // Configure the cell
-                cell.textLabel?.text = data[indexPath.row]
+                cell.textLabel?.text = restauratnNames[indexPath.row]
+        cell.selectionStyle = .none
+        cell.backgroundColor = .cyan
+          cell.textLabel?.textColor = .red
+       
+       
 
+        
+        
                 return cell
 
     }
